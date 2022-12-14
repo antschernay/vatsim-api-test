@@ -26,7 +26,7 @@ function interval() {
   return new Promise(function(resolve, reject) {
     setInterval(function() {                 
       resolve(getAPI())
-    }, 60000)
+    }, 90000)
   
   })
 }

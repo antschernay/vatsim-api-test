@@ -22,9 +22,17 @@ async function getAPI() {
 };
 
 
-getAPI();
-setInterval(getAPI, 60000);
+function interval() {
+  return new Promise(function(resolve, reject) {
+    setInterval(function() {                 
+      resolve(getAPI())
+    }, 60000)
+  
+  })
+}
 
+getAPI();
+interval();
 
 
 app.get('/', (req, res)=> {

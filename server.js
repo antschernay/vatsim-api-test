@@ -1,29 +1,37 @@
 const express = require('express');
 const cors = require('cors');
+const { response } = require('express');
 //const knex = require('knex');
 
 const app = express();
 app.use(cors());
 
 
+let pilots;
 
 
+async function getAPI() {
 
-const getAPI = async () => {
   const res = await fetch('https://data.vatsim.net/v3/vatsim-data.json');
 
   if (res.ok) {
       const data = await res.json();
-
-      return data.pilots;
+      
+      pilots = data.pilots;
   }
 };
 
 
 
+setInterval(getAPI, 60000);
+
+
 
 app.get('/', (req, res)=> {
-  getAPI().then(res.send.bind(res));
+ 
+  res.send(JSON.stringify(pilots));
+
+
 })
 
 

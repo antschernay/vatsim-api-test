@@ -22,7 +22,7 @@ async function getAPI() {
 };
 
 
-
+getAPI();
 setInterval(getAPI, 60000);
 
 

@@ -22,6 +22,8 @@ async function getAPI() {
 };
 
 
+setInterval(getAPI, 90000);
+
 
 app.get('/', (req, res)=> {
  
@@ -33,10 +35,10 @@ app.get('/', (req, res)=> {
 
 
 
-app.get('/startInterval', function(req, res) {
+/*app.get('/startInterval', function(req, res) {
     setInterval(getAPI, 90000);
     res.send('timer started');
-});
+});*/
 
 
 

@@ -22,18 +22,6 @@ async function getAPI() {
 };
 
 
-function interval() {
-  return new Promise(function(resolve, reject) {
-    setInterval(function() {                 
-      resolve(getAPI())
-    }, 90000)
-  
-  })
-}
-
-getAPI();
-interval();
-
 
 app.get('/', (req, res)=> {
  
@@ -41,6 +29,14 @@ app.get('/', (req, res)=> {
 
 
 })
+
+
+var timer;
+
+
+app.get('/startInterval', function() {
+    timer = setInterval(getAPI, 90000);
+});
 
 
 

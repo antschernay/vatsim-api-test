@@ -34,8 +34,9 @@ app.get('/', (req, res)=> {
 var timer;
 
 
-app.get('/startInterval', function() {
-    timer = setInterval(getAPI, 90000);
+app.get('/startInterval', function(req, res) {
+    timer = setInterval(getAPI, 90000)
+    res.send('timer started');
 });
 
 

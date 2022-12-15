@@ -31,11 +31,10 @@ app.get('/', (req, res)=> {
 })
 
 
-var timer;
 
 
 app.get('/startInterval', function(req, res) {
-    timer = setInterval(getAPI, 90000)
+    setInterval(getAPI, 90000);
     res.send('timer started');
 });
 
